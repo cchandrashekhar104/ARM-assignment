@@ -1,15 +1,17 @@
-  PRESERVE8
+     PRESERVE8
      THUMB
- AREA     appcode, CODE, READONLY
+     AREA     appcode, CODE, READONLY
      EXPORT __main
 	 ENTRY 
-__main  FUNCTION
-	MOV r3,#5
-	MOV r4,#1
-	MOV r5,#0
-	AND r3,r4
-	CMP r3,#0 //IF its even then r5 will get assigned 1 otherwise 0 for odd
-	MOVEQ r5,#1
+__main  FUNCTION	
+		/*
+		Code to check if number is even or odd
+		Even number have lsb as 0 so to check if even or we just and it with 1
+		If the result is 0 it is even else it is odd
+		*/
+		MOV R0,#8	;number to check
+		MOV R1,#1	;result will be in this register
+		AND R1,R0	
 stop B stop ; stop program
      ENDFUNC
      END
